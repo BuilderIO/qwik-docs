@@ -1,4 +1,4 @@
-import { component$, Host, onRender$, useHostElement } from '@builder.io/qwik';
+import { component$, onRender$, useHostElement } from '@builder.io/qwik';
 import fetch from 'node-fetch';
 
 export interface ContentProps {
@@ -8,10 +8,9 @@ export interface ContentProps {
 export const ContentPage = component$(async (props: ContentProps) => {
   const el = useHostElement();
   const html = await fetchQwikBuilderContent(props.pathname);
-  console.log('html', html);
-  el.innerHTML = html; // DOMINO FAILS
+  console.log(el, html);
   return onRender$(() => (
-    <Host></Host>
+    null
   ));
 });
 
