@@ -9,7 +9,9 @@
     "clean": "rimraf build",
     "deploy": "wrangler publish",
     "deploy.preview": "node serve/index.js",
-    "start": "npm run clean && concurrently -c blue,green \"rollup -c --configDev --watch\" \"wait-on public/build && npm run serve\"",
+    "watch.css": "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch",
+    "watch.tsx": "rollup -c --configDev --watch",
+    "start": "npm run clean && concurrently -c blue,green \"npm run watch.tsx\" \"npm run watch.css\" \"wait-on public/build && npm run serve\"",
     "serve": "node server/index.js"
   },
   "devDependencies": {
@@ -26,6 +28,7 @@
     "express": "~4.17.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.59.0",
+    "tailwindcss": "^3.0.18",
     "typescript": "^4.5.2",
     "wait-on": "^6.0.0"
   },

@@ -20,6 +20,7 @@ export function renderApp(opts: RenderToStringOptions) {
       <head>
         <title>Qwik Blank App</title>
         <QwikLoader></QwikLoader>
+        <link href="/output.css" rel="stylesheet"/>
       </head>
       <body q:base="/build/">
         <Root pathname={opts.url!.pathname} />

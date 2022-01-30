@@ -6,7 +6,9 @@ export interface ContentProps {
 
 export const DocsPage = component$(async (props: ContentProps) => {
   return onRender$(() => (
-    <Host>DOCS</Host>
+    <Host>
+      <div class="text-3xl font-bold underline">DOCS</div>
+    </Host>
   ));
 });
 
